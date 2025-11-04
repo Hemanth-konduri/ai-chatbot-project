@@ -1,8 +1,9 @@
 const ChatMessage = ({ message }) => {
   const isBot = message.sender === 'bot'
   
-  const formatTime = (date) => {
-    return new Date(date).toLocaleTimeString('en-US', { 
+  const formatTime = (timestamp) => {
+    const date = typeof timestamp === 'string' ? new Date(timestamp) : timestamp
+    return date.toLocaleTimeString('en-US', { 
       hour: '2-digit', 
       minute: '2-digit' 
     })
